@@ -7,9 +7,9 @@ int main()
 	
 	for(i=1; i<=n; i++) //n번 돌려 
 	{	
-		for(j=2*n-1; j>=i*2; j--)
+		for(j=2*n-1; j>=i*2; j--) //condition setting is core.
 			printf(" ");
-		for(j=0; j<2*i-1; j++)
+		for(j=0; j<2*i-1; j++) //here, too
 			printf("*");
 		printf("\n");
 	}
