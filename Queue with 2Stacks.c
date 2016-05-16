@@ -45,17 +45,11 @@ int pop(struct node** top)
 {
     int buff;
     struct node *t;
-    if (*top == NULL) {
-        printf("Stack underflow \n");
-        return;
-    }
-    else {
         t = *top;
         buff = t->data;
         *top = t->next;
         free(t);
         return buff;
-    }
 }
 void display(struct node *top1,struct node *top2)
 {
