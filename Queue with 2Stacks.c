@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h> //malloc, free
 //링크드 구현입니다. 명심하자 영호쓰!! 
-typedef struct node{
+typedef struct node{//typedef 빠지면 에러.
     int data;
     struct node *next;
 }Node;
@@ -28,14 +28,15 @@ void deQ(Q *q) //void형이 맞다. 리턴은 pop에서만 하면된다.
     }
     x = pop(&q->stack2); 
     printf("%d\n", x);
-    //큐 재정렬을 해야 deQ후에도 Q가 유지된다. 
+    //큐 재정렬을 해야 완벽한 Q가 유지된다. 
     while(q->stack2 != NULL){
     	x=pop(&q->stack2);
     	push(&q->stack1, x);
 	} 
 }
 ////////////push, pop이 가정되있다고 하면 여기까지랑 메인문만 구현하면됨/////
-//링크드 사용하여 구현 
+
+//push, pop은 연결리스트를 사용하여 구현 
 void push(Node** top, int data)
 {
     Node* newnode = (Node*) malloc(sizeof(Node));
@@ -55,31 +56,29 @@ int pop(Node** top)
 }
 void display(Node *top1,Node *top2)
 {
-	printf("---------------------\n"); 
     while (top1 != NULL) {
-        printf("%d\n", top1->data);
+        printf("%d ", top1->data);
         top1 = top1->next;
     }
     while (top2 != NULL) {
-        printf("%d\n", top2->data);
+        printf("%d ", top2->data);
         top2 = top2->next;
     }
-   	printf("---------------------\n");
+   	printf("\n");
 }
 int main()
 {
     Q *q = (Q*)malloc(sizeof(Q));
-    int f = 0, a;
-    char ch = 'y';
-    q->stack1 = NULL;
+    int n = 0, data;
+    q->stack1 = NULL; //q의 노드들 초기화가 빠지면 display시 무한루프를 돈다.
     q->stack2 = NULL;
-    while (ch == 'y'||ch == 'Y') {
-        printf("enter ur choice\n1.add to queue\n2.remove from queue\n3.display\n4.exit\n");
-        scanf("%d", &f);
-        switch(f) {
-            case 1 : printf("enter the element to be added to queue\n");
-                     scanf("%d", &a);
-                     enQ(q, a);
+    while (1) {
+        printf("1:enQ 2:deQ 3:display 4:exit \n");
+        scanf("%d", &n);
+        switch(n) {
+            case 1 : printf("input element\n");
+                     scanf("%d", &data);
+                     enQ(q, data);
                      break;
             case 2 : deQ(q);
                      break;
@@ -91,4 +90,5 @@ int main()
                       break;
         }
     }
+   return 0;
 }
