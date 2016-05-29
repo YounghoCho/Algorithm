@@ -73,11 +73,11 @@ void PrintGraph(Graph* G){
 	if((V=G->Vertices)==NULL)
 		return;
 	while( V!=NULL){
-		printf("%c : ", V->Data);
+		printf("%c : ", V->Data); //main문에서 '1'이런식으로 문자를 넣었기 떄문에 %c를 사용.
 		if((E=V->AdjacencyList)==NULL){
 			V=V->Next;
 			printf("\n");
-			continue;
+			continue;	//없으면 아래 while문 그냥 읽혀버린다.
 		}
 		while( E!=NULL){
 			printf("%c[%d] ", E->Target->Data, E->Weight);
