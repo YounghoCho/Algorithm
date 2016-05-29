@@ -1,5 +1,4 @@
 #include "Graph.h"
-///////////////과제_조영호////////////////// 
 //그래프 생성
 Graph* CreateGraph(){ 
 	Graph* graph=(Graph*)malloc(sizeof(Graph));
@@ -24,7 +23,7 @@ Edge* CreateEdge( Vertex*From, Vertex*Target, int Weight){
 	E->Target= Target;
 	return E; }
 //////////////////////////////////////////////////////////
-//꼭지점 추가
+//꼭지점 추가 -> 꼭지점들을 linked list로 이어 배열을 만든다.
 void AddVertex( Graph* G, Vertex* V){
 	Vertex* VertexList= G->Vertices;
 	if(VertexList==NULL)
@@ -35,7 +34,7 @@ void AddVertex( Graph* G, Vertex* V){
 		VertexList->Next=V;
 	}
 	V->Index= G->VertexCount++; } 
-//모서리 추가
+//모서리 추가 -> 각 꼭지점마다 Adj포인터를 사용해 모서리 배열을 만든다. E1, E2, E3..
 void AddEdge( Vertex* V, Edge* E){
 	if( V->AdjacencyList==NULL)
 		V->AdjacencyList=E;
@@ -46,7 +45,7 @@ void AddEdge( Vertex* V, Edge* E){
 		AdjacencyList->Next=E;
 	} } 
 //////////////////////////////////////////////////////////
-//그래프 소멸
+//그래프 소멸 : call그래프소멸-> call 꼭짓점소멸-> call모서리 소멸.. 그래프 삭제만 콜해주면, 알아서 모서리 꼭짓점, 그래프 순으로 제거.
  void DestroyGraph(Graph*G){
 	while(G->Vertices != NULL)
 	{
