@@ -1,4 +1,4 @@
-#ifndef GRAPH_H
+#ifndef GRAPH_H //여기서만 _h를 쓰고 .c에서는 .h로 사용한다. 
 #define GRAPH_H
 #include<stdio.h>
 #include<stdlib.h>
