@@ -35,6 +35,10 @@ int main(void){
 	AddEdge(V5, CreateEdge(V5, V4, 0));		
 
 	PrintGraph(G);
+			
+	printf("\nDFS(from V1): ");
+	DFS(V1);
+	
 	DestroyGraph(G);
 	return 0;
 } 
