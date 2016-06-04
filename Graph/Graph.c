@@ -86,3 +86,4 @@ void PrintGraph(Graph* G){
 		printf("\n");
 		V=V->Next;	//이동!}	
 	printf("\n"); }
+}
