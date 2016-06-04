@@ -27,7 +27,7 @@ Edge* CreateEdge( Vertex*From, Vertex*Target, int Weight){
 void AddVertex( Graph* G, Vertex* V){
 	Vertex* VertexList= G->Vertices;
 	if(VertexList==NULL)
-		G->Vertices= V;
+		G->Vertices= V; //VertexList에 붙이면 안되지 !
 	else{
 		while( VertexList->Next != NULL)
 			VertexList= VertexList->Next;
@@ -80,9 +80,9 @@ void PrintGraph(Graph* G){
 			continue;	//없으면 아래 while문 그냥 읽혀버린다.
 		}
 		while( E!=NULL){
-			printf("%c[%d] ", E->Target->Data, E->Weight);
-			E= E->Next;
+			printf("%c[%d] ", E->Target->Data, E->Weight); //Target에서 끝나면 안되고, Data도 찍어야함.
+			E= E->Next; //이동!
 		}
 		printf("\n");
-		V=V->Next;	}	
+		V=V->Next;	//이동!}	
 	printf("\n"); }
