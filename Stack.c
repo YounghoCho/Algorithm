@@ -9,9 +9,9 @@ typedef struct stack{
 	Node*nodes;
 }Stack;
 void create(Stack** stack, int capa){
-	(*stack)= (Stack*)malloc(sizeof(Stack));
-	(*stack)->nodes= (Node*)malloc(sizeof(Node)*capa);
-	(*stack)->top=0;
+	(*stack)= (Stack*)malloc(sizeof(Stack)); //스택의 구조체를 만든다.
+	(*stack)->nodes= (Node*)malloc(sizeof(Node)*capa); //여기는 노드들을 만드는거라 (Node)를 써줘야해.
+	(*stack)->top=0; //( ) 소괄호를안해주면 ->가 먼저 연산되기때문에 의미가 달라져!
 	(*stack)->capa=capa;
 }
 void destroy(Stack* stack){
