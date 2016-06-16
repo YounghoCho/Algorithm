@@ -95,7 +95,7 @@ void DFS(Vertex* V){
 	while(E != NULL) //모서리가 없을때까지 
 	{
 		if(E->Target != NULL && E->Target->Visited==NotVisited) // //모서리의 Target이있고, 'E의 Target'!!이 방문하지않았으면
-		DFS(E->Target); //꼭짓점 계속 이동 
+			DFS(E->Target); //꼭짓점 계속 이동 
 		E=E->Next; //다른 모서리로 이동. 
 	}
 }
