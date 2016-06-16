@@ -3,13 +3,13 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-enum VisitMode { Visited, NotVisited };
+enum VisitMode { Visited, NotVisited };//열거리스트
 typedef int ElementType;
 
 //꼭지점 구조체
 typedef struct tagVertex{ //typedef가 빠지면 안되지
 	ElementType Data;
-	int Visited;
+	int Visited;//방문여부설정
 	int Index;
 	struct tagVertex* Next; //구조체 안에는 struct타입을 써줘야해.
 	struct tagEdge* AdjacencyList;
@@ -29,7 +29,7 @@ typedef struct tagGraph{
 //Vertex, Edge, Graph 구조체를 만듬 
 
 //어떤 인자들을 넘기는지 잘봐
-Graph* CreateGraph();
+Graph* CreateGraph(); //포인터 반환형
 void DestroyGraph( Graph*G);
 
 Vertex* CreateVertex(ElementType Data);
