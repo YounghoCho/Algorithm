@@ -31,6 +31,13 @@ void DFS(G* g, int data){
   printf("%d ", data);
   visited[data]=1;
   int i;
-    
+  //DFS는 반복문이 1개면 된다.
+  for(i=0; i<g->n; i++)
+    if(!visited[i] && g->mat[data][i]==1){
+      printf("%d ", i);
+      visited[i]=1;
+      DFS(g, i);
+    }
 }
+
 #endif
