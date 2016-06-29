@@ -25,3 +25,12 @@ void insert_Edge(G* g, int From, int Target){
   g->mat[From][Target]=1;
   g->mat[Target][From]=1;
 }
+int visited[size]={0,};
+
+void DFS(G* g, int data){
+  printf("%d ", data);
+  visited[data]=1;
+  int i;
+    
+}
+#endif
