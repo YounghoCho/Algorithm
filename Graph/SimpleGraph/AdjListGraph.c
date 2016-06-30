@@ -45,4 +45,22 @@ void EnQ(int data){
 int EdQ(){
   return Q[front++]; 
 }
+
+//인접리스트
+void BFS(G* g, int d){
+	GN* gn= g->Adj[d];
+	printf("%d ", d);
+	visited[d]=1;
+	EnQ(d);
+	while(!is_empty){
+		int temp=DeQ();
+		for(gn; gn; gn=gn->next){
+			if(!visited[gn->data]){
+				printf("%d ", gn->data);
+				visited[gn->data]=1;
+				EnQ(gn->data);
+			}
+		}
+	}
+}
 #endif
