@@ -1,3 +1,4 @@
+//소수 구하기
 #include<stdio.h>
 
 int main(){
