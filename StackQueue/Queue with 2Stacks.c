@@ -15,7 +15,7 @@ int pop(Node** top); //pop은 int리턴
 
 void enQ(Q *q, int x)
 {
-    push(&q->stack1, x); //q의 주소를 보내는게 아니라, 1번 스택을 보낸다. 
+    push(&q->stack1, x); //q의 주소를 보내는게 아니라, 1번 스택의 주소를 보낸다. 
 }	//그냥 q->stack1을 보내면, 아래 push구현에서 포인터를 사용할수없어. 
 void deQ(Q *q) //void형이 맞다. 리턴은 pop에서만 하면된다. 
 {
