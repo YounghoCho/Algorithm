@@ -5,7 +5,7 @@ int Q[size];
 int rear=0, front=0;
 
 void EnQ(int data){
-  Q[rear++]=data;
+  Q[rear++]=data; //데이터를 넣고 증가한다.
 }
 int DeQ(){
   return Q[front++];
