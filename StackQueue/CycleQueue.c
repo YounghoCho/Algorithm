@@ -24,7 +24,7 @@ void destroy(Q* q){
 //stack은 if문이 없고, front&rear대신 top하나로 연산한다. 
 void enQ(Q* q, int data){
 	int pos=q->rear;
-	if(q->rear==q->capa)
+	if(q->rear==q->capa) //원인것처럼 느끼게하는게 핵심
 		q->rear=0;
 	else
 		q->rear++;
