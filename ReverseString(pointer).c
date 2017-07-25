@@ -7,10 +7,10 @@ int main(void) {
 	char *str1[size];
     
 	int i=0;
-	for(i=0; i<=size; i++){
-		str1[i]=&str[size-i];//*str1[i]에다가 문자을 대입하면 에러가납니다. 
+	for(i=0; i<size; i++){
+		str1[i]=&str[size-i-1];//*str1[i]에다가 문자을 대입하면 에러가납니다. //꼭 1을 빼줘야해요
 	}
-	for(i=0; i<=size; i++){
+	for(i=0; i<size; i++){
 		printf("%c",*str1[i]);
 	}
 	
