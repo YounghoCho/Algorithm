@@ -3,7 +3,7 @@
 
 int main(void) {
 	char str[]="youngho";
-	int size=sizeof(str)-1;//문자열 맨끝에는 null이 포함되므로
+	int size=sizeof(str)/sizeof(str[0])-1;//문자열 맨끝에는 null이 포함되므로
 	char *str1[size];
     
 	int i=0;
