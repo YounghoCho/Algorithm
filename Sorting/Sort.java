@@ -54,8 +54,36 @@ class Arr
 		fprint(arr);
 	}
 
+	public void quick(int arr[], int l, int r){
+		int left=l;
+		int right=r;
+		int pivot=arr[(l+r)/2]; //not index ! array value
+		
+		//sorting
+		do{
+			while(arr[left]<pivot) left++; //<= occurs error
+			while(arr[right]>pivot) right--;
+			if(left<=right){
+				int temp=arr[left];
+				arr[left]=arr[right];
+				arr[right]=temp;
+				
+				//important condition
+				left++;
+				right--;
+				//after this, we can get two arrays. then do recursion.
+			}
+		}while(left<=right); //one time, right will be smaller than left 
+
+		//sort devided arrays
+		if(l<right)//cause the right will go down to l
+			quick(arr,l,right);
+		if(r>left)
+			quick(arr,left,r);
+	}
+
 }
-class Sort
+class Test 
 {
 	public static void main(String[] args) 
 	{
@@ -65,13 +93,15 @@ class Sort
 		Arr t4=new Arr();
 
 		System.out.println("---Original array---");
-		t1.fprint(t1.arr);
+	//	t1.fprint(t1.arr);
 		System.out.println("---Bubble sort---");
-		t1.bubble(t1.arr);
+	//	t1.bubble(t1.arr);
 		System.out.println("---Selection sort---");
-		t2.select(t2.arr);
+	//	t2.select(t2.arr);
 		System.out.println("---Insertion sort---");
-		t3.insert(t3.arr);
-
+	//	t3.insert(t3.arr);
+		System.out.println("---Quick sort---");
+		t4.quick(t4.arr, 0, t4.arr.length-1); //no way.. don't forget '-1'
+		t4.fprint(t4.arr);//print here as Qucik sort is recursive.
 	}
 }
