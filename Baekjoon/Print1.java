@@ -7,7 +7,7 @@
 
 import java.util.*;
 
-class Main
+class Print1
 {
 	public static void main(String[] args) 
 	{
