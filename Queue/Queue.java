@@ -47,13 +47,13 @@ class Main{
 			NODE node=new NODE();
 			node.data=n;
       //main idea: 큐가 비었는지 판단하는 기준은 front==null인지 여부이다.
-			if(front==null){
+			if(front==null){ //중요
 				front=node;
 				rear=node;
 			}else{
         //포인터 이동
-				rear.next=node;
-				rear=node;
+				rear.next=node; //wow 정확한구조를 알아야함
+ 				rear=node;
 			}
       //사이즈 저장
 			size++;
