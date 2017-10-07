@@ -1,5 +1,5 @@
 import java.util.*;//added to use Arrays.sort();
-				   //added to use Scanner();
+		   //added to use Scanner();
 
 class Searching
 {	
@@ -62,7 +62,6 @@ class Search
 		String a= scan.nextLine();
 		int b= scan.nextInt();
 		double c= scan.nextDouble();
-		System.out.println("문자열 : "+a+"\n숫자 : "+b+"\n실수 : "+c);
 		*/
 		/////////////////////////////////
 		
