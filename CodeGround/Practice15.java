@@ -72,3 +72,33 @@ class Solution {
 	    return false;
 	}
 }
+
+//천재의풀이
+for(int test_case = 0; test_case < T; test_case++) {
+	int r= sc.nextInt();
+	int nei= sc.nextInt();
+	
+	int x[]=new int[nei];
+	int y[]=new int[nei];
+	
+	boolean check[]=new int[r+1];
+	
+	int result=1;
+	Arrays.fill(check,false);
+	for(int i=0; i<nei; i++){
+		x[i]=sc.nextInt();
+		y[i]=sc.nextInt();
+		//crazy man
+		//x를 방문하면 1이 되고, x의 인접점을 방문하게되면 인접점은 0이되서 ok
+		//사실 잘 모르겠다.. 예제를 그림그려보면 기가막히게 되버림.
+		check[y[i]]= !check[x[i]];
+	}
+	for(int i=0; i<nei; i++){
+		//crazy 2
+		
+		if(check[x[i]]==check[y[i]]){
+			result=0;
+			break;
+		}
+	}
+}
