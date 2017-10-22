@@ -86,7 +86,7 @@ class Main
 			//기본, if문
 			if(x<0 || x>=N || y<0 || y>=M) continue; //=넣어줘야해요★
 			if(visited[x][y]==1) continue;//이게 먼저오면 x,y가 음수가 되서 예외발생함★
-			DFS(depth+1,x,y,sum);			
+			DFS(depth+1,x,y,sum); //depth++, ++depth는 실제계산과 다른결과를 .
 		}
 		//최초 방문점 방문 취소★
 		visited[row][col]=0;
