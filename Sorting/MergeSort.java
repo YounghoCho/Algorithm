@@ -34,32 +34,32 @@ class Main{
 		merge(temp1, temp2, arr);		
 	}
 
-	static void merge(int temp1[], int temp2[], int arr[]){
+	static void merge(int temp1[], int temp2[], int stack[]){
 
-		int a=0,b=0,c=0;
+		int a=0,b=0,top=0;
 		while(a<temp1.length){
-			if(b<temp2.length){
+			if(b<temp2.length){ //없으면 범위에러 발생
 				if(temp1[a]<temp2[b]){
-					arr[c]=temp1[a];
+					stack[top]=temp1[a];
 					a++;
 				}else{
-					arr[c]=temp2[b];
+					stack[top]=temp2[b];
 					b++;
 				}
-				c++;
+				top++;
 			}else{
-				arr[c]=temp1[a];
+				stack[top]=temp1[a];
 				a++;
-				c++;
+				top++;
 			}
 		}
 		while(b<temp2.length){
-			arr[c]=temp2[b];
+			stack[top]=temp2[b];
 			b++;
-			c++;
+			top++;
 		}
 		System.out.println("merge");
-		print(arr);
+		print(stack);
 	}
 	
 	static void print(int arr[]){
