@@ -1,2 +1,2 @@
-# Practice-C-coding
-A repository to practice C coding by myself 
+# Algorithm Practice in Java
+I will be happy if you give me an advice, Thank you.
