@@ -1,4 +1,4 @@
-/* 동아리
+/* UKOV
 알파벳 문자열을 입력받고 같은 알파벳이 연속해서 나오면 
 알파벳과 숫자로 결과를 나타내라
 
@@ -13,7 +13,8 @@ class Main{
 		Scanner scan= new Scanner(System.in);
 		String str="";
 		
-		press(str= scan.nextLine());		
+		press(str= scan.nextLine());
+		scan.close();
 	}
 	static void press(String str){
 		int count=1;
