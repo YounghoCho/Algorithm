@@ -8,7 +8,7 @@ import java.util.*;
 
 public class Main {
 	public static void main(String[] args) {
-		//배열 선언
+		//new 없이 배열 선언
 		int a[][] = { { 2, 3, 4}, { 2, 3 ,4 } };
 		int b[][] = { { 2, 3 }, { 2, 3 }, { 2, 3 } };
 		int result[][]= new int[2][2];
