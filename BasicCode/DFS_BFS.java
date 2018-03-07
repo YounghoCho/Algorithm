@@ -17,7 +17,7 @@ public class DFS_BFS {
         for(int j=1; j<=V; j++){
             if(graph[i][j]==1&& visited[j]==false){
                 //Recursion is the main Idea
-				dfs(j);
+		dfs(j);
             }
         }
     }
@@ -30,24 +30,20 @@ public class DFS_BFS {
 			// because they return Exception when there is a size limit
         Queue<Integer> q = new LinkedList<Integer>();
         q.offer(i);
-        visited[i] = true;
-        System.out.print(i+" ");
           
         int temp;
-		//isEmpty()
+	//BFS 재귀가 아니다.
         while(!q.isEmpty()){
             temp = q.poll();
+	    visited[temp]=true;
+	    System.out.print(temp+" ");		
             for(int j=1; j<=V; j++){
-                if(graph[temp][j]==1&&visited[j]==false){
+                if(graph[temp][j]==1&&visited[j]==false)
                     q.offer(j);
-                    visited[j]=true;
-                    System.out.print(j+" ");
-                }
             }                       
         }
     }  
     public static void main(String[] args) {
-                  
         Scanner sc = new Scanner(System.in);
         V = sc.nextInt();
         graph = new int[V+1][V+1];
@@ -63,13 +59,14 @@ public class DFS_BFS {
             //when two vertex(a,b) get connected, thay are Edge(==1);  
             graph[a][b] = graph[b][a] = 1;
         }
-          
+        sc.close();
+	    
         dfs(startPoint);
-        //initialize 
-        for(int j=1; j<=V; j++){
-            visited[j]=false;
-        }
         System.out.println();
+
+	//initialize 
+        for(int j=1; j<=V; j++)
+            visited[j]=false;
           
         bfs(startPoint);
     }
