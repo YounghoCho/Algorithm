@@ -46,5 +46,5 @@ public class Test {
 			}
 		}
 	}
-//End CLass
+//End Class
 }
