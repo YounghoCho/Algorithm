@@ -1,50 +1,36 @@
-public class Test {
-	public static void main(String[] args) {
-		long start = System.currentTimeMillis();
-		int N = 2000;
-		int arr[] = new int[N];
-		for(int i = 2; i<N; i++){
-			arr[i] = i;	//0과 1은 0으로 셋팅하고 시작한다. 1은 소수가 아니다.
-		}
-		//getDecimal(arr, N);
-		eratosTenesChe(arr, N);
+//에라토스테스체(수정) : 180526
+package youngho;
 
-		long end = System.currentTimeMillis();
-		 System.out.println("\n실행시간:" + (end-start));	
-	}
+public class Main{
 
-  //일반적인 방법(7초 소요)
-	static void getDecimal(int arr[], int N){
-		for(int i = 2; i < N; i++){
-			for(int j = 2; j < Math.sqrt(arr[i]); j++){ //최적화1
-				if(arr[i] % j == 0) {
-					arr[i] = 0;
-					break;	//최적화2					
-				}
-			}
-		}
-		print(arr, N);
-	}
-	
-  //에라토스테스체 4초
-	static void eratosTenesChe(int arr[], int N){
-		for(int i = 2; i < Math.sqrt(N); i++){  // Logic 3 : 2로 나누는 것 보다 루트를 씌우는게 수학적으로 정확함. 일반적 방식과는 다르게, 여기에 sqrt를 적용한다.
-			if(arr[i] == 0) { 	// Logic 2 : 이미 색칠된 녀석은 거른다.
+	public static void prime(int n) {
+		System.out.println(n + "까지의 소수를 구합니다 !");
+		int arr[] = new int[n];
+		init(arr);
+
+		for(int i = 2; i < Math.sqrt(n); i++) { //검사 범위(1 ~ n), 수학적으로 정확한 계산은 루트값
+			if(arr[i] == 0)	//이미 소수가 아닌것은 거른다.
 				continue;
-			}
-			for(int j = i + i; j < N; j += i){ // Logic 1 : 첫번째로 오는 인자는 소수이다(i + 1), 인자의 배수들을 소수(0)로 색칠한다(j+=i)
+			for(int j = i + i; j < n; j += i) { //검사하는 숫자의 배수들을 칠한다, 처음 시작하는 수는 2,3일 필요가없다.
 				arr[j] = 0;
 			}
 		}
-		print(arr, N);
+		print_prime(arr);
 	}
-
-	static void print(int arr[], int N) {
-		for(int i = 1 ; i < N; i++){
-			if(arr[i] != 0) {
-				System.out.print(arr[i] + " ");
-			}
-		}
+	public static void init(int arr[]) {
+		for(int i = 2; i<arr.length; i++)
+			arr[i] = i;
 	}
-//End Class
+	public static void print_prime(int arr[]) {
+		for(int i = 2; i<arr.length; i++)
+			if(arr[i]!=0)
+			System.out.print(arr[i] + " ");
+		System.out.println();
+	}
+	public static void main(String args[]) {
+		//TC
+		prime(50);
+		prime(100);
+		prime(150);
+	}
 }
